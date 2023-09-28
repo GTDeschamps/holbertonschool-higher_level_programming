@@ -12,7 +12,7 @@ def print_arg(argv):
         print("1:", argv[0])
     else:
         print("{} arguments:".format(number_arg))
-        for i in range( number_arg):
+        for i in range(number_arg):
             print("{}: {}".format(i+1, argv[i]))
 
 
