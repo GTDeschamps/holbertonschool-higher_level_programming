@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    if not matrix:
-        return[]
 
     num_row = len(matrix)
     num_col = len(matrix[0])
