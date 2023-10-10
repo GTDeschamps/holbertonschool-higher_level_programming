@@ -1,0 +1,46 @@
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+>>> matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+    >>> div = 2
+    >>> matrix_divided(matrix, div)
+    [[5.0, 10.0, 15.0], [20.0, 25.0, 30.0], [35.0, 40.0, 45.0]]
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    >>> div = 3
+    >>> matrix_divided(matrix, div)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+    >>> matrix = [[1.5, 2.5], [3.5, 4.5]]
+    >>> div = 1.5
+    >>> matrix_divided(matrix, div)
+    [[1.0, 1.67], [2.33, 3.0]]
+
+    >>> matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+    >>> div = 0
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+    >>> matrix = [[10, 20, 30], [40, 50], [70, 80, 90]]
+    >>> div = 2
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix = "not_a_matrix"
+    >>> div = 2
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[10, 20, "30"], [40, 50, 60], [70, 80, 90]]
+    >>> div = 2
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+    >>> div = "not_a_number"
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+    """
