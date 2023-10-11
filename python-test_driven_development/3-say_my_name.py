@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""definition of function say_my_name"""
+
 
 def say_my_name(first_name, last_name=""):
     """ function to print the quote "My name is <first name> <last name>"
