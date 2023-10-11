@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""definition matrix_divided function"""
+
 
 def matrix_divided(matrix, div):
     """function to divide all elements of a matrix
@@ -14,6 +16,15 @@ def matrix_divided(matrix, div):
         raise\
             TypeError("matrix must be a matrix\
                     (list of lists) of integers/floats")
+
+    if len(matrix) == 0:
+        raise TypeError("matrix must be a matrix\
+                    (list of lists) of integers/floats")
+
+    num_cols = len(matrix[0])
+    if not all(len(row) == num_cols for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
+
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
