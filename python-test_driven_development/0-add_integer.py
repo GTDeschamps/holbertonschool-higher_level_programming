@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" definition of function add"""
+
+
 def add_integer(a, b=98):
     """
     function taking two arguments (a and b) which can be int or float.
