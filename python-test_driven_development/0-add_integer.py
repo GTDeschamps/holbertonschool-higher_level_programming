@@ -13,5 +13,3 @@ def add_integer(a, b=98):
     var_a = int(a)
     var_b = int(b)
     return var_a + var_b
-
-
