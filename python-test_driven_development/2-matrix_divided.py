@@ -10,7 +10,7 @@ def matrix_divided(matrix, div):
     All elements of the matrix should be divided by div,
     rounded to 2 decimal places
     """
-    message= "matrix must be a matrix (list of lists) of integers/floats"
+    message = "matrix must be a matrix (list of lists) of integers/floats"
     if not isinstance(matrix, list) or\
             not all(isinstance(row, list) for row in matrix):
         raise TypeError(message)
