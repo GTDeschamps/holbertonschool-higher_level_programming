@@ -3,8 +3,10 @@
 
 
 class Rectangle:
+    """Definition of size in rectangle"""
+
     number_of_instances = 0
-    """Definition of size in rectangle, and init instance to 0"""
+
 
     def __init__(self, width=0, height=0):
         if not isinstance(height, int):
