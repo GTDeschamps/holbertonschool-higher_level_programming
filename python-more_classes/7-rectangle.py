@@ -39,9 +39,8 @@ class Rectangle:
             return result
         else:
             for _ in range(self.__height):
-                rectangle_str += str(self.print_symbol) * self.width + '\n'
-            return rectangle_str.rstrip()
-
+                result += str(self.print_symbol) * self.__width + '\n'
+            return result[:-1]
     """print the rectangle"""
 
     @property
