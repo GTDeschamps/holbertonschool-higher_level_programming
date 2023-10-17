@@ -1,0 +1,15 @@
+  >>> my_list = MyList([5, 3, 8, 1, 2])
+    >>> my_list.print_sorted()
+    [1, 2, 3, 5, 8]
+
+    >>> empty_list = MyList([])
+    >>> empty_list.print_sorted()
+    []
+
+    >>> single_element_list = MyList([42])
+    >>> single_element_list.print_sorted()
+    [42]
+
+ >>> my_list = MyList([5, 3, 8, 1, 2])
+        >>> my_list.print_sorted()
+        [1, 2, 3, 5, 8]
