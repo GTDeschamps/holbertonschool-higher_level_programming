@@ -7,6 +7,6 @@ class MyList(list):
 
     def print_sorted(self):
         for item in self:
-            if not isinstance(item,int):
+            if not isinstance(item, int):
                 raise TypeError("is not integer")
         print(sorted(self))
