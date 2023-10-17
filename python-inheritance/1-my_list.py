@@ -3,7 +3,10 @@
 
 
 class MyList(list):
+    """function to inherit from list to Mylist """
+
     def print_sorted(self):
-        """function to inherit from list to Mylist """
-        sorted_list = sorted(self)
-        print(sorted_list)
+        for item in self:
+            if not isinstance(item,int):
+                raise TypeError("is not integer")
+        print(sorted(self))
