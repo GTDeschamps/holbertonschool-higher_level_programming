@@ -6,4 +6,4 @@ class BaseGeometry:
     """ creation of class"""
     def area(self):
         """ implement geometry"""
-        raise Exception("area()is not implemented")
+        raise Exception("area() is not implemented")
