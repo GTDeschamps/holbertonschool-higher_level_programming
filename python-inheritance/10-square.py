@@ -14,7 +14,17 @@ class BaseGeometry:
             raise ValueError("{:s} must be greater than 0".format(name))
 
 
-class Square(BaseGeometry):
+class Rectangle(BaseGeometry):
+    """ creation of class rectangle"""
+    def __init__(self, width, height):
+        self.__width = 0
+        self.__height = 0
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
+
+class Square(Rectangle):
     """ creation of class square"""
     def __init__(self, size):
         self.__size = 0
