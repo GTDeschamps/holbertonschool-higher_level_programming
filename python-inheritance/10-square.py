@@ -16,11 +16,10 @@ class BaseGeometry:
 
 class Square(BaseGeometry):
     """ creation of class square"""
-    def __init__(self, size, ):
+    def __init__(self, size):
         self.__size = 0
         self.integer_validator("size", size)
         self.__size = size
-
 
     def area(self):
         return self.__size * self.__size
