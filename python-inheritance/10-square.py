@@ -24,6 +24,7 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.__height = height
 
+
 class Square(Rectangle):
     """ creation of class square"""
     def __init__(self, size):
