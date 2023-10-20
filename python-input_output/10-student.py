@@ -12,7 +12,8 @@ class Student:
     def to_json(self, attrs=None):
         if attrs is None:
             return self.__dict__
-
+        valid_attrs = {}
         for attr in attrs:
             if hasattr(self, attr):
-                return {attr: getattr(self, attr)}
+                valid_attrs[attr] = getattr(self, attr)
+        return valid_attrs
