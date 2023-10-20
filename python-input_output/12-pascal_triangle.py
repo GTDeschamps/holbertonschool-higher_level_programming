@@ -4,7 +4,7 @@
 
 def pascal_triangle(n):
     """function to print pascal_triangle"""
-    if n <=0:
+    if n <= 0:
         return[]
 
     pascal = [[1]]
@@ -17,5 +17,3 @@ def pascal_triangle(n):
         pascal.append(line)
 
     return pascal
-
-
