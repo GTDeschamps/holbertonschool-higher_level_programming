@@ -37,6 +37,10 @@ class Rectangle(Base):
         else:
             self.__y = y
 
+    def area(self):
+        """Definition of area of rectangle"""
+        return self.__width * self.__height
+
     @property
     def width(self):
         return self.__width
