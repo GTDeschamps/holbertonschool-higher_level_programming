@@ -51,7 +51,10 @@ class Rectangle(Base):
                 result += "#" * self.__width + "\n"
             print(result[:-1])
 
-    """print the rectangle"""
+    def __str__(self):
+        """ updating the class """
+        return f"[Rectangle] \
+            ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     @property
     def width(self):
