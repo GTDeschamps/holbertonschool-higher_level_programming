@@ -47,8 +47,9 @@ class Rectangle(Base):
         if self.__height == 0 or self.__width == 0:
             print(result[""])
         else:
+            print('\n' * self.__y, end='')
             for _ in range(self.__height):
-                result += "#" * self.__width + "\n"
+                result += ' ' * self.__x + "#" * self.__width + "\n"
             print(result[:-1])
 
     def __str__(self):
