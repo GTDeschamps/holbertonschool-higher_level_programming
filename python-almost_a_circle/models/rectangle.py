@@ -37,7 +37,6 @@ class Rectangle(Base):
         else:
             self.__y = y
 
-
     @property
     def width(self):
         return self.__width
