@@ -2,6 +2,9 @@
 """Fonction Base """
 
 
+import json
+
+
 class Base:
     """ definition of id """
     __nb__objects = 0
@@ -12,3 +15,10 @@ class Base:
         else:
             self.__class__.__nb__objects += 1
             self.id = self.__class__.__nb__objects
+
+    def to_json_string(list_dictionaries):
+        """Return the JSON string representation of list_dictionaries."""
+        if list_dictionaries is None or not list_dictionaries:
+            return []
+        else:
+            return json.dumps(list_dictionaries)
