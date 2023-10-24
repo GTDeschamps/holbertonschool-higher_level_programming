@@ -20,10 +20,10 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-            self.width = value
-            self.width = value
+        self.width = value
+        self.width = value
 
-def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """Assign attributes from *args and **kwargs."""
         if args:
             attributes = ['id', 'size', 'x', 'y']
