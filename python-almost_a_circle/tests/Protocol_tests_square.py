@@ -8,7 +8,18 @@ from io import StringIO
 
 class TestSquare(unittest.TestCase):
     def setUp(self):
-        Base._Base__nb_objects = 0
+        """Initializing instance with width and height
+        parameters"""
+        self.s = Square(5)
+
+    def tearDown(self):
+        """Deleting created instance"""
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        del self.s
+
     def test_id_assignment(self):
         # Créez une instance de la classe Base
         instance1 = Square(5)

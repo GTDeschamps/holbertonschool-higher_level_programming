@@ -8,7 +8,14 @@ from io import StringIO
 
 class TestRectangle(unittest.TestCase):
     def setUp(self):
-        Base._Base__nb_objects = 0
+        """Initializing instance with width and height
+        parameters"""
+        self.r = Rectangle(5, 10)
+
+    def tearDown(self):
+        """Deleting created instance"""
+        del self.r
+
     def test_id_assignment(self):
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
