@@ -6,9 +6,13 @@ from models.rectangle import Rectangle
 from models.square import Square
 from unittest.mock import patch
 from io import StringIO
+
+
 class TestBase(unittest.TestCase):
+
     def setUp(self):
         Base._Base__nb_objects = 0
+
     def test_id_assignment(self):
         # Créez une instance de la classe Base
         instance1 = Base()
@@ -18,9 +22,13 @@ class TestBase(unittest.TestCase):
         self.assertEqual(instance1.id, 1)
         self.assertEqual(instance2.id, 2)
         self.assertEqual(instance3.id, 12)
+
+
 class TestRectangle(unittest.TestCase):
+
     def setUp(self):
         Base._Base__nb_objects = 0
+
     def test_id_assignment(self):
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
@@ -28,46 +36,57 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.id, 1)
         self.assertEqual(r2.id, 2)
         self.assertEqual(r3.id, 12)
+
     def test_invalid_width(self):
         # Test d'une largeur invalide (doit lever une exception TypeError)
         with self.assertRaises(TypeError):
             r = Rectangle("invalid", 5)
+
     def test_negative_width(self):
         # Test d'une largeur négative (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(-5, 5)
+
     def test_zero_value_width(self):
         # Test d'une largeur égale à zéro (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(0, 6)
+
     def test_invalid_height(self):
         # Test d'une hauteur invalide (doit lever une exception TypeError)
         with self.assertRaises(TypeError):
             r = Rectangle(5, "invalid")
+
     def test_negative_height(self):
         # Test d'une hauteur négative (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(5, -5)
+
     def test_zero_value_width(self):
         # Test d'une hauteur égale à zéro (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(4, 0)
+
     def test_invalid_x(self):
         # Test d'une position X invalide (doit lever une exception TypeError)
         with self.assertRaises(TypeError):
             r = Rectangle(5, 5, "invalid", 0)
+
     def test_negative_x(self):
         # Test d'une position X négative (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(5, 5, -5, 0)
+
     def test_invalid_y(self):
         # Test d'une position Y invalide (doit lever une exception TypeError)
         with self.assertRaises(TypeError):
             r = Rectangle(5, 5, 0, "invalid")
+
     def test_negative_y(self):
         # Test d'une position Y négative (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             r = Rectangle(5, 5, 0, -5)
+
     def test_area_evaluation(self):
         # Test de la valeur de l'aire d'un rectangle
         r4 = Rectangle(3, 2)
@@ -76,6 +95,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.area(), 6)
         self.assertEqual(r5.area(), 20)
         self.assertEqual(r6.area(), 56)
+
     def test_display(self):
         r7 = Rectangle(3, 2)
         r8 = Rectangle(2, 2)
@@ -89,6 +109,7 @@ class TestRectangle(unittest.TestCase):
             r8.display()
             actual_output = mock_stdout.getvalue()
         self.assertEqual(actual_output, expected_output8)
+
     def test_str_method(self):
         # Test if that model is respected:
         # [Rectangle] (<id>) <x>/<y> - <width>/<height>
@@ -97,6 +118,7 @@ class TestRectangle(unittest.TestCase):
         r10 = Rectangle(5, 5, 1)
         self.assertEqual(r9.__str__(), "[Rectangle] (12) 2/1 - 4/6")
         self.assertEqual(r10.__str__(), "[Rectangle] (1) 1/0 - 5/5")
+
     def test_display_2(self):
         r11 = Rectangle(2, 3, 2, 2)
         r12 = Rectangle(3, 2, 1, 0)
@@ -110,6 +132,7 @@ class TestRectangle(unittest.TestCase):
             r12.display()
             actual_output = mock_stdout.getvalue()
         self.assertEqual(actual_output, expected_output12)
+
     def test_update(self):
         r13 = Rectangle(10, 10, 10, 10)
         self.assertEqual(r13.__str__(), "[Rectangle] (1) 10/10 - 10/10")
@@ -123,6 +146,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r13.__str__(), "[Rectangle] (89) 4/10 - 2/3")
         r13.update(89, 2, 3, 4, 5)
         self.assertEqual(r13.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+
     def test_update_kwargs(self):
         r14 = Rectangle(10, 10, 10, 10)
         r14.update(height=1)
@@ -133,9 +157,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r14.__str__(), "[Rectangle] (89) 3/1 - 2/1")
         r14.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r14.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+
+
 class TestSquare(unittest.TestCase):
+
     def setUp(self):
         Base._Base__nb_objects = 0
+
     def test_id_assignment(self):
         # Créez une instance de la classe Base
         instance1 = Square(5)
@@ -145,6 +173,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(instance1.id, 1)
         self.assertEqual(instance2.id, 9)
         self.assertEqual(instance3.id, 2)
+
     def test_display_2(self):
         s1 = Square(2)
         s2 = Square(3, 1, 1)
@@ -158,6 +187,7 @@ class TestSquare(unittest.TestCase):
             s2.display()
             actual_output = mock_stdout.getvalue()
         self.assertEqual(actual_output, expected_output2)
+
     def test_str_method3(self):
         # Test if that model is respected:
         # [Square] (<id>) <x>/<y> - <size>
@@ -168,18 +198,22 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s3.__str__(), "[Square] (1) 0/0 - 5")
         self.assertEqual(s4.__str__(), "[Square] (2) 2/0 - 2")
         self.assertEqual(s5.__str__(), "[Square] (3) 1/3 - 3")
+
     def test_invalid_size(self):
         # Test d'une taille invalide (doit lever une exception TypeError)
         with self.assertRaises(TypeError):
             s = Square("invalid")
+
     def test_negative_size(self):
         # Test d'une taille négative (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             s = Square(-5)
+
     def test_zero_value_size(self):
         # Test d'une taille égale à zéro (doit lever une exception ValueError)
         with self.assertRaises(ValueError):
             s = Square(0)
+
     def test_update_kwargs2(self):
         s1 = Square(5)
         self.assertEqual(s1.__str__(), "[Square] (1) 0/0 - 5")
@@ -197,5 +231,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.__str__(), "[Square] (1) 12/1 - 7")
         s1.update(size=7, id=89, y=1)
         self.assertEqual(s1.__str__(), "[Square] (89) 12/1 - 7")
+
+
 if __name__ == '__main__':
     unittest.main()
