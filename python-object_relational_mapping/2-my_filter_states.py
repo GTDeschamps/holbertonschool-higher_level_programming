@@ -15,8 +15,7 @@ def list_states():
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3],
-        state=sys.argv[4]
+        db=sys.argv[3]
     )
 
     # Create a cursor object to interact with the database
