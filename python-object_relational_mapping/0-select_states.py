@@ -32,4 +32,4 @@ def list_states():
         connection.close()
 
 if __name__ == "__main__":
-    list_states(username, password, database_name)
+    list_states(root, root, hbtn_0e_0_usa)
