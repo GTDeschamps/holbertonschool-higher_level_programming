@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """List all States with a name begin by N """
 
+
 import MySQLdb
 import sys
 
 
 def list_states():
-    """List all states from databases hbtn_0e_0_usa"""
+    """List all states  with a name begin by N from databases hbtn_0e_0_usa"""
 
     # Connect to the MySQL database
     connection = MySQLdb.connect(
@@ -21,7 +22,7 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the SQL query
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N' ORDER BY id ASC")
 
     # Fetch all the rows from the query
     query_rows = cur.fetchall()
@@ -38,4 +39,3 @@ def list_states():
 if __name__ == "__main__":
     """Execute the List_states function"""
     list_states()
-
