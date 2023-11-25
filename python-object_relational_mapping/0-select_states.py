@@ -14,22 +14,23 @@ def list_states():
         db=sys.argv[3]
     )
 
-        # Create a cursor object to interact with the database
+    # Create a cursor object to interact with the database
     cur = connection.cursor()
 
-        # Execute the SQL query to fetch states sorted by states.id in ascending order
+    # Execute the SQL query
     cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-        # Fetch all the rows from the query
+    # Fetch all the rows from the query
     query_rows = cur.fetchall()
 
-        # Display the results
+    # Display the results
     for rows in query_rows:
-        print(rows)  # Modify this to display the state information as needed
+        print(rows)
 
-        # Close the cursor and connection
+    # Close the cursor and connection
     cur.close()
     connection.close()
 
 if __name__ == "__main__":
-    list_states(root, root, hbtn_0e_0_usa)
+    """Execute the List_states function"""
+    list_states()
