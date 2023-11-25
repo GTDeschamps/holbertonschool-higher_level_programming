@@ -31,6 +31,7 @@ def list_states():
     cur.close()
     connection.close()
 
+
 if __name__ == "__main__":
     """Execute the List_states function"""
     list_states()
