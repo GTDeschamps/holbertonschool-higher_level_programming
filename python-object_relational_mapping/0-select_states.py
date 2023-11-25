@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""List all States """
 
 import MySQLdb
 import sys
@@ -8,9 +8,9 @@ import sys
 def list_states():
     """List all states from databases hbtn_0e_0_usa"""
 
-        # Connect to the MySQL database
+    # Connect to the MySQL database
     connection = MySQLdb.connect(
-        host='localhost',
+        host="localhost",
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
