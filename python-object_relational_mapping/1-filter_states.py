@@ -22,7 +22,7 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the SQL query
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
     # Fetch all the rows from the query
     query_rows = cur.fetchall()
