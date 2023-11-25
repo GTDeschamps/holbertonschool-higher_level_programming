@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+
+
 import MySQLdb
 import sys
+
 
 def list_states():
     """List all states from databases hbtn_0e_0_usa"""
