@@ -7,6 +7,7 @@ import sys
 
 
 def list_states():
+    """List all cities from databases hbtn_0e_4_usa"""
 
     # Connect to MySQL server
     connection = MySQLdb.connect(
@@ -23,13 +24,13 @@ def list_states():
     # Execute the query
     cur.execute("SELECT cities.name FROM cities "
                 "JOIN states ON cities.state_id = states_id "
-                "WHERE states_name = %(arg)s ORDER BY cities.id ASC",
+                "WHERE states.name = %(arg)s ORDER BY cities.id ASC",
                 {'arg': sys.argv[4]})
 
     # Fetch all the rows and display results
     query_rows = cur.fetchall()
-    for row in query_rows:
-        print(row)
+    cities = [row[0]for row in query_rows]
+    print(", ".join(cities))
 
     # Close connection
     cur.close()
