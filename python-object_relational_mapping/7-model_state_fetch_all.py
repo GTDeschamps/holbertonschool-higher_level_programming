@@ -19,10 +19,8 @@ if __name__ == "__main__":
     session = Session(engine)
 
 # Retrieve and display all State objects sorted by id
-    states = session.query(State).order_by(State.id).all()
-
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    for state in session.query(State).order_by(State.id).all()
+    print("{}: {}".format(state.id, state.name))
 
 # close session
 session.close()
