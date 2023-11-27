@@ -2,11 +2,11 @@
 """List all cities from databases hbtn_0e_4_usa """
 
 
-import sys
 import MySQLdb
+import sys
 
 
-def list_state():
+def list_states():
     """List all cities from databases hbtn_0e_4_usa"""
 
     # Connect to MySQL server
@@ -36,5 +36,5 @@ def list_state():
     connection.close()
 
 if __name__ == "__main__":
-    """execute the list_cities function"""
-    list_state()
+    """execute the list_states function"""
+    list_states()
