@@ -24,7 +24,7 @@ def list_states():
     # Execute the query
     cur.execute("SELECT * FROM cities"
                 "JOIN states ON cities.state_id = states.id ORDER "
-                "BY cities.id")
+                "BY cities.id ASC")
 
     # Fetch all the rows and display results
     query_rows = cur.fetchall()
