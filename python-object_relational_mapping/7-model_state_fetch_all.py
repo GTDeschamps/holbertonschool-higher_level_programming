@@ -6,7 +6,7 @@ import sys
 from model_state import Base, State
 
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 
 if __name__ == "__main__":
     # Establishing connection to Mysql server
@@ -16,5 +16,13 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
 # Create a session
-    DBSession = sessionmaker(bind=engine)
-    session = DBSession()
+    session = Session(engine)
+
+# Retrieve and display all State objects sorted by id
+    states = session.query(State).order_by(State.id).all()
+
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
+
+# close session
+session.close()
