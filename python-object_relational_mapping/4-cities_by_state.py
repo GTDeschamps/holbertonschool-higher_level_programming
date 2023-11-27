@@ -16,7 +16,7 @@ def list_states():
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3]
-        )
+    )
 
     # Create a cursor object to interact with the database
     cur = connection.cursor()
@@ -34,6 +34,7 @@ def list_states():
     # Close connection
     cur.close()
     connection.close()
+
 
 if __name__ == "__main__":
     """execute the list_states function"""
