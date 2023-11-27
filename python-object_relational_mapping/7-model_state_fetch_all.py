@@ -15,12 +15,12 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-# Create a session
+    # Create a session
     session = Session(engine)
 
-# Retrieve and display all State objects sorted by id
+    # Retrieve and display all State objects sorted by id
     for state in session.query(State).order_by(State.id).all():
         print("{}: {}".format(state.id, state.name))
 
-# close session
-session.close()
+    # close session
+    session.close()
