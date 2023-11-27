@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all cities from databases hbtn_0e_0_usa """
+"""List all cities from databases hbtn_0e_4_usa """
 
 
 import sys
@@ -7,7 +7,7 @@ import MySQLdb
 
 
 def list_cities():
-    """List all cities from databases hbtn_0e_0_usa"""
+    """List all cities from databases hbtn_0e_4_usa"""
 
     # Connect to MySQL server
     connection = MySQLdb.connect(
@@ -22,7 +22,9 @@ def list_cities():
     cur = connection.cursor()
 
     # Execute the query
-    cur.execute("SELECT * FROM cities ORDER BY id ASC")
+    cur.execute("SELECT cities.id, cities.name, states.name FROM cities"
+                "JOIN states ON cities.state_id = states.id ORDER "
+                "BY cities.id")
 
     # Fetch all the rows and display results
     query_rows = cur.fetchall()
