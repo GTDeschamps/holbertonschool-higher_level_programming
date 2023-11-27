@@ -19,11 +19,11 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Retrieve and display all State objects sorted by id
-    for first_state in session.query(State).order_by(State.id).all():
-        if first_state:
-            print("{}: {}".format(first_state.id, first_state.name))
-        else:
-            print("Nothing")
+    first_state = session.query(State).order_by(State.id).first():
+    if first_state:
+        print("{}: {}".format(first_state.id, first_state.name))
+    else:
+        print("Nothing")
 
     # close session
     session.close()
