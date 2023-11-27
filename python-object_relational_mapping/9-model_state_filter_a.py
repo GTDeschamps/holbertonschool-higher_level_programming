@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Retrieve and display all State objects sorted by id
-    contain_a= session.query(State).filter(State.name.like('%a%')).order_by(
+    contain_a = session.query(State).filter(State.name.like('%a%')).order_by(
         State.id)
     for state in contain_a:
         print("{}: {}".format(state.id, state.name))
