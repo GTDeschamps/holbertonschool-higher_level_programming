@@ -22,7 +22,7 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the query
-    cur.execute("SELECT cities.id, cities.name, states.name FROM cities"
+    cur.execute("SELECT * FROM cities"
                 "JOIN states ON cities.state_id = states.id ORDER "
                 "BY cities.id")
 
