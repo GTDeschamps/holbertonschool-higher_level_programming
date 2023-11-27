@@ -11,7 +11,7 @@ Base = declarative_base()
 
 
 # define the State class
-class SCity(Base):
+class City(Base):
     """ take the attribute of State in database"""
 
     __tablename__ = 'cities'
