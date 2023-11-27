@@ -21,7 +21,10 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the query
-    cur.execute("SELECT * FROM cities WHERE state_name = %s ORDER BY id ASC")
+    cur.execute("SELECT cities.name FROM cities "
+                "JOIN states ON cities.state_id = states_id "
+                "WHERE state_name = %(arg)s ORDER BY cities.id ASC",
+                {'arg' : sys.argv[4]})
 
     # Fetch all the rows and display results
     query_rows = cur.fetchall()
