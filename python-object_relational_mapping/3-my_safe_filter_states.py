@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all States by user imput"""
+"""List all States with SQL injection prevent imput"""
 
 
 import MySQLdb
@@ -7,7 +7,7 @@ import sys
 
 
 def list_states():
-    """List all states by user from databases hbtn_0e_0_usa"""
+    """List all states with SQL injection prevent from databases hbtn_0e_0_usa"""
 
     # Connect to the MySQL database
     connection = MySQLdb.connect(
@@ -22,7 +22,7 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the SQL query
-    cur.execute("""SELECT * FROM states WHERE name = '{}\'--' ORDER
+    cur.execute("""SELECT * FROM states WHERE name = %(arg)s '{}' ORDER
                 BY id ASC""".format(sys.argv[4]))
 
     # Fetch all the rows from the query
