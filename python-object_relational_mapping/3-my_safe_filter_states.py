@@ -22,8 +22,8 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the SQL query
-    cur.execute("""SELECT * FROM states WHERE name = %(arg)s '{}' ORDER
-                BY id ASC""".format(sys.argv[4]))
+    cur.execute("SELECT * FROM states WHERE name = %(arg)s ORDER BY id ASC",
+                {'arg':sys.argv[4]})
 
     # Fetch all the rows from the query
     query_rows = cur.fetchall()
