@@ -24,7 +24,7 @@ def list_states():
     # Execute the query
     cur.execute("SELECT cities.name FROM cities "
                 "JOIN states ON cities.state_id = states_id "
-                "WHERE states.name = %(arg)s ORDER BY cities.id",
+                "WHERE states.name = %(arg)s ORDER BY cities.id ",
                 {'arg': sys.argv[4]})
 
     # Fetch all the rows and display results
