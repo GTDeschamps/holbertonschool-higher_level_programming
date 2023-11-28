@@ -7,7 +7,7 @@ import sys
 
 
 def list_states():
-    """List all states with SQL injection prevent from databases hbtn_0e_0_usa"""
+    """List all states with SQL injection from databases hbtn_0e_0_usa"""
 
     # Connect to the MySQL database
     connection = MySQLdb.connect(
@@ -23,7 +23,7 @@ def list_states():
 
     # Execute the SQL query
     cur.execute("SELECT * FROM states WHERE name = %(arg)s ORDER BY id ASC",
-                {'arg':sys.argv[4]})
+                {'arg': sys.argv[4]})
 
     # Fetch all the rows from the query
     query_rows = cur.fetchall()
@@ -40,4 +40,3 @@ def list_states():
 if __name__ == "__main__":
     """Execute the List_states function"""
     list_states()
-

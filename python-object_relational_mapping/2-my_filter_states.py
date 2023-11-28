@@ -22,15 +22,16 @@ def list_states():
     cur = connection.cursor()
 
     # Execute the SQL query
-    cur.execute("""SELECT * FROM states WHERE name = '{}' ORDER
-                BY id ASC""".format(sys.argv[4]))
+    cur.execute("""SELECT * FROM states WHERE name = '{}'
+                    ORDER BY id ASC""".format(sys.argv[4]))
 
     # Fetch all the rows from the query
     query_rows = cur.fetchall()
 
     # Display the results
     for row in query_rows:
-        print(row)
+        if row[1] == sys.argv[4]:
+            print(row)
 
     # Close the cursor and connection
     cur.close()
