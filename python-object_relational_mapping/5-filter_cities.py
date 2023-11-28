@@ -23,9 +23,11 @@ def list_states():
 
     # Execute the query
     cur.execute(
-        "SELECT name FROM cities"
-        "WHERE cities.state_id = (SELECT id FROM states WHERE name = %(arg)s) "
-        "ORDER BY cities.id ASC", {'arg': sys.argv[4]}
+        """SELECT name FROM cities
+            WHERE cities.state_id = (
+                SELECT id FROM states WHERE name = %(arg)s)
+            ORDER BY cities.id ASC""",
+        {'arg': sys.argv[4]}
     )
 
     # Fetch all the rows and display results
