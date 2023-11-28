@@ -15,17 +15,18 @@ def list_states():
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3]
+        db=sys.argv[3],
     )
 
-# Create a cursor object to interact with the database
+    # Create a cursor object to interact with the database
     cur = connection.cursor()
 
     # Execute the query
-    cur.execute("SELECT cities.name FROM cities "
-                "JOIN states ON cities.state_id = state_id "
-                "WHERE states.name = %(arg)s ORDER BY cities.id ",
-                {'arg': sys.argv[4]})
+    cur.execute(
+        "SELECT name FROM cities"
+        "WHERE cities.state_id = (SELECT id FROM states WHERE name = %(arg)s) "
+        "ORDER BY cities.id ASC", {'arg': sys.argv[4]}
+    )
 
     # Fetch all the rows and display results
     query_rows = cur.fetchall()
