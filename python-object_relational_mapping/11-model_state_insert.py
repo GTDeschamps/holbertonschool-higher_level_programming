@@ -19,12 +19,12 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Add Louisiana to the Database
-    louisiana = State(name="Louisiana")
-    session.add(louisiana)
-    session.commit
+    state_new = State(name="Louisiana")
+    session.add(state_new)
+    session.commit()
 
     # Retrieve and display all State objects sorted by id
-    print(louisiana.id)
+    print("{}".format(state_new.id))
 
     # close session
     session.close()
