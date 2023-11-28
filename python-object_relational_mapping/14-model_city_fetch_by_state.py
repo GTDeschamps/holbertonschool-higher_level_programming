@@ -20,10 +20,11 @@ if __name__ == "__main__":
     session = Session(engine)
 
     # Retrieve and display all State objects sorted by id
-    cities = session.query(State, City).join(City).filter(
-        State.id == City.state_id).order_by(City.id).all()
-    for state, city in cities:
-        print("{}: {} {}".format(state.name, city.id, city.name))
+    cities = session.query(City).order_by(City.id).all()
+    for city in cities:
+        state_name=session.query(State.name).filter(State.id ==
+                                                    city.state_id).scalar()
+        print("{}: {} {}".format(state_name, city.id, city.name))
 
     # close session
     session.close()
