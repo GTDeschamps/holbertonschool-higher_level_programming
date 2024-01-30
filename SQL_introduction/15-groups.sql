@@ -1,0 +1,5 @@
+-- How much time the score appear --
+SELECT score, COUNT(*) AS number
+FROM second_table
+GROUP BY score
+ORDER BY number DESC;
